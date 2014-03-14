@@ -3,29 +3,17 @@ package org.naasir.scrapi
 import akka.actor.{ActorSystem, Props}
 import akka.io.IO
 import spray.can.Http
-import org.apache.derby.jdbc._
-import com.imageworks.migration._
-import scala.slick.jdbc.JdbcBackend.{Database, Session}
 
 import org.naasir.scrapi.data._
 import org.naasir.scrapi.service._
 
+/** The bootstrapper for the app */
 object Boot extends App {
 
   // we need an ActorSystem to host our application in
   implicit val system = ActorSystem()
 
-  // create the database
-  val migrationAdapter = DatabaseAdapter.forVendor(Vendor.forDriver("org.apache.derby.jdbc.EmbeddedDriver"), None)
-  val dataSource = new EmbeddedDataSource()
-  dataSource.setUser("")
-  dataSource.setPassword("")
-  dataSource.setDatabaseName("db")
-  dataSource.setCreateDatabase("create")
-  val migrator = new Migrator(dataSource, migrationAdapter)
-  migrator.migrate(InstallAllMigrations, "org.naasir.scrapi.data", false)
-
-  val db = Database.forDataSource(dataSource)
+  val db = SqlDatabaseInitializer.initialize()
   val repo = new UserRepository(db)
   repo.populate
 
