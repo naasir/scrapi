@@ -7,7 +7,7 @@
                     /_/          
 ```
 
-A sample REST API implementation in Scala
+A Scala flavored sample REST API with teeth.
 
 ## Quickstart
 
@@ -38,7 +38,7 @@ Issue the following commands from a command shell to start the development web s
     $ sbt run
     
     # test #
-    $ curl http://localhost:8080/api/user
+    $ curl http://localhost:8080/v1/user
 
 > **NOTE**: Running the `sbt` command may result in a `OutOfMemoryError`. To fix this, you can increase the memory allocated to the JVM by following [these instructions](http://suhinini.me/2012/07/16/error-during-sbt-execution-java-lang-outofmemoryerror-permgen-space/) to create a `~/.sbtconfig` file.
 
@@ -46,11 +46,27 @@ Issue the following commands from a command shell to start the development web s
 
 ### USER resource
 
+#### Get user by ID
+
+Request
+
+`GET` http://localhost:8080/v1/user/{id}
+
+Response
+
+```json
+{
+  "email": "batman@test.com",
+  "name": "Batman",
+  "id": 1
+}
+```
+
 #### Get all users
 
 Request
 
-    `GET` http://localhost:8080/api/user
+`GET` http://localhost:8080/v1/user
 
 Response
 
@@ -65,6 +81,7 @@ Response
     "email": "robin@test.com",
     "name": "Robin",
     "id": 2
-  }
+  },
+  ...
 ]
 ```
