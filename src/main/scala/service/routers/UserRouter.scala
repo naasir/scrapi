@@ -12,9 +12,10 @@ import MediaTypes._
 import org.json4s.Formats
 import org.json4s.DefaultFormats
 
-import org.naasir.scrapi.data.UserRepository
+import org.naasir.scrapi.domain.UserService
 
-class UserServiceActor(val repo: UserRepository) extends Actor with UserService {
+/** An Akka Actor for the UserRouter */
+class UserRouterActor(val service: UserService) extends Actor with UserRouter {
   implicit def json4sFormats: Formats = DefaultFormats
 
   def actorRefFactory = context
@@ -22,23 +23,30 @@ class UserServiceActor(val repo: UserRepository) extends Actor with UserService 
   def receive = runRoute(route)
 }
 
-trait UserService extends HttpService with Json4sSupport {
+/** An HTTP request router for the User resource */
+trait UserRouter extends HttpService with Json4sSupport {
 
-  val repo: UserRepository
+  val service: UserService
 
   val route =
     pathPrefix("v1") {
       path("user") {
         get {
           complete {
-            repo.getAll()
+            service.getAll()
           }
         }
       } ~
       path("user" / LongNumber) { id =>
         get {
           complete {
-            repo.get(id)
+            service.get(id)
+          }
+        } ~
+        delete {
+          complete {
+            service.delete(id)
+            StatusCodes.NoContent
           }
         }
       }

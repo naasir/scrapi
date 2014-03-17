@@ -16,8 +16,8 @@ resolvers ++= Seq(
 )
 
 // dependencies
-val akkaVersion = "2.2.3"
-val sprayVersion = "1.2.0"
+val akkaVersion = "2.3.0"
+val sprayVersion = "1.3.1"
 
 libraryDependencies ++= Seq (
   // -- Testing --

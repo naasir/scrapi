@@ -1,5 +1,6 @@
 package org.naasir.scrapi.domain
 
+/** A generic CRUD (Create, Read, Update, Delete) repository trait */
 trait CrudRepository[T <: Entity] {
 
   def count(): Long
