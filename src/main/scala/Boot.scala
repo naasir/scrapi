@@ -4,6 +4,8 @@ import akka.actor.{ActorSystem, Props}
 import akka.io.IO
 import spray.can.Http
 
+import scala.slick.driver.{DerbyDriver}
+
 import org.naasir.scrapi.data._
 import org.naasir.scrapi.service._
 
@@ -15,7 +17,6 @@ object Boot extends App {
 
   val db = SqlDatabaseInitializer.initialize()
   val repo = new UserRepository(db)
-  repo.populate
 
   // create and start our service actor
   val handler = system.actorOf(Props(new UserServiceActor(repo)), "user-service")

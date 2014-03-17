@@ -1,8 +1,11 @@
 package org.naasir.scrapi.data
 
 import javax.sql.{DataSource}
+
 import org.apache.derby.jdbc.{EmbeddedDataSource}
+
 import scala.slick.jdbc.JdbcBackend.{Database}
+
 import com.imageworks.migration.{DatabaseAdapter,
   Migrator,
   MigratorOperation,
@@ -18,9 +21,8 @@ object SqlDatabaseInitializer extends DatabaseInitializer {
   /** Initializes the database */
   def initialize(): Database = {
     val datasource = createDatasource()
-    val db = Database.forDataSource(datasource)
     runMigrations(datasource, InstallAllMigrations)
-    db
+    Database.forDataSource(datasource)
   }
 
   /** Destroys the database */
@@ -40,8 +42,9 @@ object SqlDatabaseInitializer extends DatabaseInitializer {
   }
 
   /** Runs all of the database migrations
-    *  @param datasource to run the migrations on
-    *  @param operation the migration operation to perform (options: InstallAllMigrations, RemoveAllMigrations)
+    * 
+    * @param datasource to run the migrations on
+    * @param operation the migration operation to perform (options: InstallAllMigrations, RemoveAllMigrations)
     */
   def runMigrations(datasource: DataSource, operation: MigratorOperation) = {
     val migrationAdapter = DatabaseAdapter.forVendor(Vendor.forDriver("org.apache.derby.jdbc.EmbeddedDriver"), None)
