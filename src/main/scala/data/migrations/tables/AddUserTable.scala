@@ -2,7 +2,7 @@ package org.naasir.scrapi.data
 
 import com.imageworks.migration._
 
-// Migration for adding the 'user' table
+/** Database migration for adding the 'user' table */
 class Migrate_20140228223141_AddUserTable extends Migration {
   val tableName = "user"
 

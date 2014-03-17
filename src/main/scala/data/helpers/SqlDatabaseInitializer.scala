@@ -18,16 +18,17 @@ import org.naasir.scrapi.domain.DatabaseInitializer
 /** A database manager responsible for initializing and destroying a SQL database */
 object SqlDatabaseInitializer extends DatabaseInitializer {
 
+  val datasource = createDatasource()
+  val db = Database.forDataSource(datasource)
+
   /** Initializes the database */
   def initialize(): Database = {
-    val datasource = createDatasource()
     runMigrations(datasource, InstallAllMigrations)
-    Database.forDataSource(datasource)
+    db
   }
 
   /** Destroys the database */
   def destroy() = {
-    val datasource = createDatasource()
     runMigrations(datasource, RemoveAllMigrations)
   }
 
