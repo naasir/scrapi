@@ -12,6 +12,12 @@ class Migrate_20140228223141_AddUserTable extends Migration {
       t.varchar("name", NotNull, Limit(128))
       t.varchar("email", NotNull, Limit(256))
     }
+
+    // email must be unique
+    addIndex(tableName,
+      "email",
+      Unique,
+      Name("idx_user_email_uniq"))
   }
 
   def down() {
