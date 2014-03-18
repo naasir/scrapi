@@ -1,5 +1,5 @@
 // project info
-name := "moriarity"
+name := "scrapi"
 
 version := "0.1.0"
 

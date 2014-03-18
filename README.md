@@ -42,6 +42,28 @@ Issue the following commands from a command shell to start the development web s
 
 > **NOTE**: Running the `sbt` command may result in a `OutOfMemoryError`. To fix this, you can increase the memory allocated to the JVM by following [these instructions](http://suhinini.me/2012/07/16/error-during-sbt-execution-java-lang-outofmemoryerror-permgen-space/) to create a `~/.sbtconfig` file.
 
+### Developing in Eclipse
+
+Scala code can be developed in Eclipse via the [Scala IDE Plugin](http://scala-ide.org/download/current.html). You can visit their home page for the most up to date installation instructions, but it follows the same process for installing other Eclipse plugins:
+
+1. Open Eclipse and from the top menu, select `Help > Install New Software...`
+2. In the Install dialog, type in the address for the software site for the Scala IDE
+  * For example: http://download.scala-ide.org/sdk/helium/e38/scala210/stable/site
+3. Select the `Scala IDE for Eclipse` option and click Finish
+
+Eclipse specific project files are not saved in this repository, but can be generated on demand with the following commands:
+
+    $ cd path/to/scrapi
+    $ sbt eclipse
+    
+Once this is done, open up Eclipse and perform the following steps:
+
+1. Select your default workspace
+2. From the top menu, select `File > Import...`
+3. From the Import dialog, select `General > Existing projects into Workspace`
+4. In the Import Projects dialog, ensure the `Select root directory` option is selected and browse to the location where the source files exist on your harddrive
+5. Ensure the `Copy projects into workspace` option is NOT selected and then click Finish
+
 ## REST API
 
 ### USER resource
