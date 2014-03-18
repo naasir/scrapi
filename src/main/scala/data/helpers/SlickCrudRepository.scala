@@ -1,11 +1,10 @@
 package org.naasir.scrapi.data
 
 import scala.slick.driver.DerbyDriver.simple._
-// import scala.slick.jdbc.JdbcBackend.{Database, Session}
 
 import org.naasir.scrapi.domain.{Entity, CrudRepository}
 
-/** A generic CRUD repository that leverages Slick 
+/** A slick-backed generic CRUD repository for entities.
   * 
   * @see http://crisdev.wordpress.com/2013/12/11/crud-trait-for-slick-2-0/
   */

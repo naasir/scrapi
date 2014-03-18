@@ -10,4 +10,4 @@ case class User(
   email: String,
   name: String,
   id: Option[Long] = None
-) extends Entity
+) extends Entity with Nameable

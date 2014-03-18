@@ -49,6 +49,19 @@ trait UserRouter extends HttpService with Json4sSupport {
             StatusCodes.NoContent
           }
         }
+      } ~
+      path("user" / Segment) { name =>
+        get {
+          complete {
+            service.get(name)
+          }
+        } ~
+        delete {
+          complete {
+            service.delete(name)
+            StatusCodes.NoContent
+          }
+        }
       }
     }
 }
