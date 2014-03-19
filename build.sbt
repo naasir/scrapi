@@ -38,5 +38,6 @@ libraryDependencies ++= Seq (
   // -- Database --
   "com.imageworks.scala-migrations" %% "scala-migrations" % "1.1.1",
   "org.apache.derby"                %  "derby"            % "10.10.1.1",
-  "com.typesafe.slick"              %% "slick"            % "2.0.0"
+  "com.typesafe.slick"              %% "slick"            % "2.0.0",
+  "com.mchange"                     %  "c3p0"             % "0.9.5-pre6"
 )

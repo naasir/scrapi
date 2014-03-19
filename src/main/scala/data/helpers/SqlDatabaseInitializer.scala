@@ -1,17 +1,16 @@
 package org.naasir.scrapi.data
 
-import javax.sql.{DataSource}
-
-import org.apache.derby.jdbc.{EmbeddedDataSource}
-
-import scala.slick.jdbc.JdbcBackend.{Database}
-
-import com.imageworks.migration.{DatabaseAdapter,
+import javax.sql.DataSource
+import com.mchange.v2.c3p0.ComboPooledDataSource
+import scala.slick.jdbc.JdbcBackend.Database
+import com.imageworks.migration.{
+  DatabaseAdapter,
   Migrator,
   MigratorOperation,
   InstallAllMigrations,
   RemoveAllMigrations,
-  Vendor}
+  Vendor
+}
 
 import org.naasir.scrapi.domain.DatabaseInitializer
 
@@ -34,11 +33,11 @@ object SqlDatabaseInitializer extends DatabaseInitializer {
 
   /**  Creates a DataSource instance from configuration */
   def createDatasource(): DataSource = {
-    val datasource = new EmbeddedDataSource()
+    val datasource = new ComboPooledDataSource()
+    datasource.setDriverClass("org.apache.derby.jdbc.EmbeddedDriver")
+    datasource.setJdbcUrl("jdbc:derby:db;create=true")
     datasource.setUser("")
     datasource.setPassword("")
-    datasource.setDatabaseName("db")
-    datasource.setCreateDatabase("create")
     datasource
   }
 
