@@ -21,7 +21,7 @@ val sprayVersion = "1.3.1"
 
 libraryDependencies ++= Seq (
   // -- Testing --
-  "org.scalatest"  % "scalatest_2.10"              % "2.0"   % "test",
+  "org.scalatest"  % "scalatest_2.10"              % "2.1.0" % "test",
   "org.scalamock" %% "scalamock-scalatest-support" % "3.0.1" % "test",
   // -- Akka --
   "com.typesafe.akka" %% "akka-testkit" % akkaVersion % "test",

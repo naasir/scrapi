@@ -42,6 +42,14 @@ Issue the following commands from a command shell to start the development web s
 
 > **NOTE**: Running the `sbt` command may result in a `OutOfMemoryError`. To fix this, you can increase the memory allocated to the JVM by following [these instructions](http://suhinini.me/2012/07/16/error-during-sbt-execution-java-lang-outofmemoryerror-permgen-space/) to create a `~/.sbtconfig` file.
 
+## Development Notes
+
+### Running the test suite
+
+Issue the following commands from a command shell to run the test suite:
+
+    $ sbt test
+
 ### Developing in Eclipse
 
 Scala code can be developed in Eclipse via the [Scala IDE Plugin](http://scala-ide.org/download/current.html). You can visit their home page for the most up to date installation instructions, but it follows the same process for installing other Eclipse plugins:
