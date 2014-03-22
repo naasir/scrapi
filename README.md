@@ -13,7 +13,7 @@ A Scala flavored sample REST API with teeth.
 
 ### Requirements
 
-The following software components are required to be pre-installed in order to run this application:
+The following software components are required to be pre-installed in order to develop for this project:
 
 * [scala](http://www.scala-lang.org/) `v2.10.3+`
 * [sbt (scala build tool)](http://www.scala-sbt.org/) `v0.13.1`
@@ -43,6 +43,15 @@ Issue the following commands from a command shell to start the development web s
 > **NOTE**: Running the `sbt` command may result in a `OutOfMemoryError`. To fix this, you can increase the memory allocated to the JVM by following [these instructions](http://suhinini.me/2012/07/16/error-during-sbt-execution-java-lang-outofmemoryerror-permgen-space/) to create a `~/.sbtconfig` file.
 
 ## Development Notes
+
+### Deploying the service
+
+The deployment process produces a single java JAR file that can be executed from any machine that has the Java Runtime Environment `v1.6` or higher.
+
+Issue the following commands from a command shell to build a deployment package and run it:
+
+    $ sbt assembly
+    $ java -jar target/scala-2.10/scrapi-assembly-0.1.0.jar
 
 ### Running the test suite
 

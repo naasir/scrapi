@@ -1,3 +1,6 @@
+// imports
+import AssemblyKeys._
+
 // project info
 name := "scrapi"
 
@@ -41,3 +44,6 @@ libraryDependencies ++= Seq (
   "com.typesafe.slick"              %% "slick"            % "2.0.0",
   "com.mchange"                     %  "c3p0"             % "0.9.5-pre6"
 )
+
+// sbt-assembly plugin settings
+assemblySettings
