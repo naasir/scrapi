@@ -9,6 +9,7 @@ class SlickUserRepository(val db: Database)
     extends UserRepository
     with SlickCrudRepository[UserTable, User]
     with SlickNameableRepository[UserTable, User]
+    with SlickQueryableRepository[UserTable, User]
 {
   val query = TableQuery[UserTable]
 

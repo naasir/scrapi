@@ -86,15 +86,27 @@ Once this is done, open up Eclipse and perform the following steps:
 ### USER resource
 
 * `GET` /v1/user
-  * Get all users
-  * Example: `GET` http://localhost:8080/v1/user
+  * Gets the first ten users
+  * `GET` http://localhost:8080/v1/user
+* `GET` /v1/user?page={number}&per_page={size}
+  * Gets a range of users
+  * `GET` http://localhost:8080/v1/user?page=1&per_page=2
 * `GET` /v1/user/{id}
-  * Get user by Id
-  * Example: `GET` http://localhost:8080/v1/user/1
+  * Gets the user with the specified id
+  * `GET` http://localhost:8080/v1/user/1
+* `PUT` /v1/user/{id}
+  * Updates the user with the specified id
+  * `PUT` http://localhost:8080/v1/user/1
+* `DELETE` /v1/user/{id}
+  * Deletes the user with the specified id
+  * `DELETE` http://localhost:8080/v1/user/1
 * `GET` /v1/user/{name}
-  * Get user by name (case-insensitive)
-  * Example: `GET` http://localhost:8080/v1/user/batman
-
+  * Gets the user with the specified name (case-insensitive)
+  * `GET` http://localhost:8080/v1/user/batman
+* `DELETE` /v1/user/{name}
+  * Deletes the user with the specified name (case-insensitive)
+  * `DELETE` http://localhost:8080/v1/user/batman
+  
 ## Technology Stack
 
 * [Scala](http://www.scala-lang.org/) : The primary development language of this project.  

@@ -32,8 +32,10 @@ trait UserRouter extends HttpService with Json4sSupport {
     pathPrefix("v1") {
       path("user") {
         get {
-          complete {
-            service.getAll()
+          parameters('page.as[Int] ? 1, 'per_page.as[Int] ? 10) { (page, perPage) =>
+            complete {
+              service.query((User) => true, (User) => true, perPage, (page - 1) * perPage)
+            }
           }
         } ~
         post {
