@@ -124,3 +124,13 @@ Response
   ...
 ]
 ```
+
+## Technology Stack
+
+* [Scala](http://www.scala-lang.org/) : The primary development language of this project.  
+* [Spray](http://spray.io/) : Suite of Scala libraries built on top of [Akka](http://akka.io/) for building REST/HTTP services.
+* [Slick](http://slick.typesafe.com/) : Modern database query and access library for Scala.
+* [Scala Migrations](https://code.google.com/p/scala-migrations/) : Scala library for managing upgrades and rollbacks to database schemas.
+* [ScalaTest](http://www.scalatest.org/) : Scala library for writing automated tests.
+* [SBT](http://www.scala-sbt.org/) : Build tool for Scala and Java projects similar to Maven and Ant.
+* [Derby](http://www.sqlite.org) : Java-based embedded SQL database engine for unit testing.
