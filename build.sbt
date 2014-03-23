@@ -36,13 +36,14 @@ libraryDependencies ++= Seq (
   "io.spray" % "spray-httpx"   % sprayVersion,
   "io.spray" % "spray-testkit" % sprayVersion % "test",
   // -- Utility --
-  "ch.qos.logback" %  "logback-classic" % "1.1.1",
-  "org.json4s"     %% "json4s-native"   % "3.2.6",
+  "com.typesafe"   % "config"           % "1.2.0",
+  "org.slf4j"      % "slf4j-simple"     % "1.7.6",
+  "org.json4s"    %% "json4s-native"    % "3.2.6",
   // -- Database --
   "com.imageworks.scala-migrations" %% "scala-migrations" % "1.1.1",
-  "org.apache.derby"                %  "derby"            % "10.10.1.1",
-  "com.typesafe.slick"              %% "slick"            % "2.0.0",
-  "com.mchange"                     %  "c3p0"             % "0.9.5-pre6"
+  "org.apache.derby"                 % "derby"            % "10.10.1.1",
+  "com.typesafe.slick"              %% "slick"            % "2.0.1",
+  "com.mchange"                      % "c3p0"             % "0.9.5-pre6"
 )
 
 // sbt-assembly plugin settings

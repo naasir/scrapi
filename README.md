@@ -16,7 +16,7 @@ A Scala flavored sample REST API with teeth.
 The following software components are required to be pre-installed in order to develop for this project:
 
 * [scala](http://www.scala-lang.org/) `v2.10.3+`
-* [sbt (scala build tool)](http://www.scala-sbt.org/) `v0.13.1`
+* [sbt (simple build tool)](http://www.scala-sbt.org/) `v0.13.1`
 
 ### Installing Dependencies
 
@@ -85,45 +85,15 @@ Once this is done, open up Eclipse and perform the following steps:
 
 ### USER resource
 
-#### Get user by ID
-
-Request
-
-`GET` http://localhost:8080/v1/user/{id}
-
-Response
-
-```json
-{
-  "email": "batman@test.com",
-  "name": "Batman",
-  "id": 1
-}
-```
-
-#### Get all users
-
-Request
-
-`GET` http://localhost:8080/v1/user
-
-Response
-
-```json
-[
-  {
-    "email": "batman@test.com",
-    "name": "Batman",
-    "id": 1
-  },
-  {
-    "email": "robin@test.com",
-    "name": "Robin",
-    "id": 2
-  },
-  ...
-]
-```
+* `GET` /v1/user
+  * Get all users
+  * Example: `GET` http://localhost:8080/v1/user
+* `GET` /v1/user/{id}
+  * Get user by Id
+  * Example: `GET` http://localhost:8080/v1/user/1
+* `GET` /v1/user/{name}
+  * Get user by name (case-insensitive)
+  * Example: `GET` http://localhost:8080/v1/user/batman
 
 ## Technology Stack
 
