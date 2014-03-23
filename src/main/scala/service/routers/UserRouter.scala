@@ -12,7 +12,7 @@ import MediaTypes._
 import org.json4s.Formats
 import org.json4s.DefaultFormats
 
-import org.naasir.scrapi.domain.UserService
+import org.naasir.scrapi.domain.{User, UserService}
 
 /** An Akka Actor for the UserRouter */
 class UserRouterActor(val service: UserService) extends Actor with UserRouter {
@@ -35,12 +35,32 @@ trait UserRouter extends HttpService with Json4sSupport {
           complete {
             service.getAll()
           }
+        } ~
+        post {
+          entity(as[User]) { user =>
+            detach() {
+              complete {
+                service.create(user)
+                user
+              }
+            }
+          }
         }
       } ~
       path("user" / LongNumber) { id =>
         get {
           complete {
             service.get(id)
+          }
+        } ~
+        put {
+          entity(as[User]) { user =>
+            detach() {
+              complete {
+                service.update(user)
+                user
+              }
+            }
           }
         } ~
         delete {
