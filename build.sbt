@@ -21,6 +21,7 @@ resolvers ++= Seq(
 // dependencies
 val akkaVersion = "2.3.0"
 val sprayVersion = "1.3.1"
+val log4jVersion = "2.0-rc1"
 
 libraryDependencies ++= Seq (
   // -- Testing --
@@ -35,10 +36,14 @@ libraryDependencies ++= Seq (
   "io.spray" % "spray-can"     % sprayVersion,
   "io.spray" % "spray-httpx"   % sprayVersion,
   "io.spray" % "spray-testkit" % sprayVersion % "test",
+  // -- Logging --
+  "org.apache.logging.log4j" % "log4j-api"        % log4jVersion,
+  "org.apache.logging.log4j" % "log4j-core"       % log4jVersion,
+  "org.apache.logging.log4j" % "log4j-slf4j-impl" % log4jVersion,
+  "org.slf4j"                % "slf4j-api"        % "1.7.6",
   // -- Utility --
-  "com.typesafe"   % "config"           % "1.2.0",
-  "org.slf4j"      % "slf4j-simple"     % "1.7.6",
-  "org.json4s"    %% "json4s-native"    % "3.2.6",
+  "com.typesafe"             % "config"           % "1.2.0",
+  "org.json4s"              %% "json4s-native"    % "3.2.6",
   // -- Database --
   "com.imageworks.scala-migrations" %% "scala-migrations" % "1.1.1",
   "org.apache.derby"                 % "derby"            % "10.10.1.1",

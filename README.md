@@ -114,5 +114,6 @@ Once this is done, open up Eclipse and perform the following steps:
 * [Slick](http://slick.typesafe.com/) : Modern database query and access library for Scala.
 * [Scala Migrations](https://code.google.com/p/scala-migrations/) : Scala library for managing upgrades and rollbacks to database schemas.
 * [ScalaTest](http://www.scalatest.org/) : Scala library for writing automated tests.
+* [Log4j 2](http://logging.apache.org/log4j/2.x/) : Java library for logging.
 * [SBT](http://www.scala-sbt.org/) : Build tool for Scala and Java projects similar to Maven and Ant.
 * [Derby](http://www.sqlite.org) : Java-based embedded SQL database engine for unit testing.
